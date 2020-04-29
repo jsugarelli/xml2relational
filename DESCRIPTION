@@ -1,0 +1,19 @@
+Package: xml2relational
+Type: Package
+Title: Converting XML Documents into Relational Data Models
+Description: Import an XML document with nested object structures and convert
+    it into a relational data model. The result is a set of R dataframes 
+    with foreign key relationships. The data model and the data can be exported as
+    SQL code of different SQL flavors.
+Version: 0.1.0
+Authors@R: person("Joachim", "Zuckarelli", role = c("aut", "cre"), email = "joachim@zuckarelli.de", comment = c(ORCID="0000-0002-9280-3016"))
+Maintainer: Joachim Zuckarelli <joachim@zuckarelli.de>
+Depends: R (>= 3.5.0)
+License: GPL-3
+Imports: xml2, stringr, tidyr, fs, stats, utils, lubridate, rlang
+Repository: CRAN
+BugReports: https://github.com/jsugarelli/xml2relational/issues
+URL: https://github.com/jsugarelli/xml2relational/
+Encoding: UTF-8
+ByteCompile: true
+RoxygenNote: 7.1.0
