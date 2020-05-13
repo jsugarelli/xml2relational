@@ -217,19 +217,19 @@ customer.data$customer
 ```
 
     ##   ID_customer customerno    givenname      surname
-    ## 1      908503   C0023751        Sarah       Durbin
-    ## 2      622386   C0017439         Mark       Durbin
-    ## 3       54904   C0248538          Max      Brunner
-    ## 4      966861   C0271182          Urs       Richli
-    ## 5       66802   C0019935 Clara-Sophie Dr. Hellmann
-    ## 6      481398   C0019935       Thomas        Chang
+    ## 1      263023   C0023751        Sarah       Durbin
+    ## 2      597336   C0017439         Mark       Durbin
+    ## 3       59960   C0248538          Max      Brunner
+    ## 4      159381   C0271182          Urs       Richli
+    ## 5       83969   C0019935 Clara-Sophie Dr. Hellmann
+    ## 6      465004   C0019935       Thomas        Chang
     ##                                email FKID_address      username
-    ## 1 sarah.durbin@absolutelynowhere.com       580621 queenofqueens
-    ## 2               mark@durbinshome.net       580621       durby82
-    ## 3    mbrunner@winetasting-brunner.de       410413 brunnermax_69
-    ## 4        urs.richli@richli-design.ch       412941     ursrichli
-    ## 5      clara-sophie@ginternetpost.de       193389         helli
-    ## 6         chang-thomas@sf-foryou.com        30581    tchango123
+    ## 1 sarah.durbin@absolutelynowhere.com       674038 queenofqueens
+    ## 2               mark@durbinshome.net       674038       durby82
+    ## 3    mbrunner@winetasting-brunner.de       149765 brunnermax_69
+    ## 4        urs.richli@richli-design.ch       718252     ursrichli
+    ## 5      clara-sophie@ginternetpost.de       977313         helli
+    ## 6         chang-thomas@sf-foryou.com       112551    tchango123
 
 As you can see, each customer record has been assigned a primary key,
 `ID_customer`. The argument `prefix.primary` of the `toRelational()`
@@ -252,11 +252,11 @@ customer.data$address
 ```
 
     ##   ID_address              street postalcode FKID_city FKID_country
-    ## 1     580621  139 W Jackson Blvd      60604    621329       473079
-    ## 2     410413     Rotkreuzplatz 5      80634    757239       185200
-    ## 3     412941       Seestrasse 43       6052    406741       939506
-    ## 4     193389 Brienner Strasse 11      80333    757239       185200
-    ## 5      30581      539 Lombard St      94133    649895       473079
+    ## 1     674038  139 W Jackson Blvd      60604    735977       495268
+    ## 2     149765     Rotkreuzplatz 5      80634      2299       352009
+    ## 3     718252       Seestrasse 43       6052    448761       817914
+    ## 4     977313 Brienner Strasse 11      80333      2299       352009
+    ## 5     112551      539 Lombard St      94133     70561       495268
 
 Again, the address points to other tables, namely the `city` and the
 `country` table. As we would have expected, the two Munich addresses
@@ -364,7 +364,7 @@ case you can use the `line.break` argument to define how the different
 `CREATE` statement are to be separated (apart from a semicolon that is
 added by default).
 
-To export the data as such you habe two options:
+To export the data as such you have two options:
 
   - you export ready-to-execute SQL `INSERT` statements using
     `getInsertSQL()` function
@@ -378,10 +378,10 @@ insert.sql <- getInsertSQL(customer.data, table.name = "city")
 cat(insert.sql, sep="\n")
 ```
 
-    ## INSERT INTO city(ID_city, name, state) VALUES (621329, 'Chicago', 'Illinois');
-    ## INSERT INTO city(ID_city, name, state) VALUES (757239, 'Munich', 'Bavaria');
-    ## INSERT INTO city(ID_city, name, state) VALUES (406741, 'Hergiswil', 'Luzern');
-    ## INSERT INTO city(ID_city, name, state) VALUES (649895, 'San Francisco', 'California');
+    ## INSERT INTO city(ID_city, name, state) VALUES (735977, 'Chicago', 'Illinois');
+    ## INSERT INTO city(ID_city, name, state) VALUES (2299, 'Munich', 'Bavaria');
+    ## INSERT INTO city(ID_city, name, state) VALUES (448761, 'Hergiswil', 'Luzern');
+    ## INSERT INTO city(ID_city, name, state) VALUES (70561, 'San Francisco', 'California');
 
 You can also export all the tables of your relational model with
 `savetofiles()`:
@@ -391,7 +391,7 @@ savetofiles(customer.data)
 ```
 
 This will save as many CSV files to your current working directory as
-you have tables in you model (`customer.data`). Each file is named for
+you have tables in your model (`customer.data`). Each file is named for
 the name of the dataframe connected to the respective table, so
 `city.csv` will store the data from the `city` table.
 
@@ -400,8 +400,8 @@ available. Please check the online help for more details.
 
 ## Contact the author
 
-I appreciate your questions, issues and feature request. Contact me on
+I appreciate your questions, issues and feature requests. Contact me on
 <joachim@zuckarelli.de>, visit the GitHub repository on
-<https://github.com/jsugarelli/xml2relational> for the packages source
+<https://github.com/jsugarelli/xml2relational> for the package source
 and [follow me on Twitter](https://twitter.com/jsugarelli) to stay
 up-to-date\!

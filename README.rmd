@@ -226,7 +226,7 @@ Alternatively, you can also use the built-in mechanism for determining the data 
 
 By setting the logical `one.statement` argument to `TRUE` you can let `getcreateSQL()` return the `CREATE` statements in one character value instead of a vector with one element per `CREATE` statement. In this case you can use the `line.break` argument to define how the different `CREATE` statement are to be separated (apart from a semicolon that is added by default).
 
-To export the data as such you habe two options:
+To export the data as such you have two options:
 
 * you export ready-to-execute SQL `INSERT` statements using `getInsertSQL()` function
 * you save the data to CSV files using `savetofiles()`.
@@ -242,7 +242,7 @@ You can also export all the tables of your relational model with `savetofiles()`
 ```{r eval=TRUE}
 savetofiles(customer.data)
 ```
-This will save as many CSV files to your current working directory as you have tables in you model (`customer.data`). Each file is named for the name of the dataframe connected to the respective table, so `city.csv` will store the data from the `city` table.
+This will save as many CSV files to your current working directory as you have tables in your model (`customer.data`). Each file is named for the name of the dataframe connected to the respective table, so `city.csv` will store the data from the `city` table.
 
 
 More optional arguments for most of the functions discussed here are available. Please check the online help for more details.
@@ -250,4 +250,4 @@ More optional arguments for most of the functions discussed here are available. 
 
 ## Contact the author
 
-I appreciate your questions, issues and feature request. Contact me on joachim@zuckarelli.de, visit the GitHub repository on https://github.com/jsugarelli/xml2relational for the packages source and [follow me on Twitter](https://twitter.com/jsugarelli) to stay up-to-date!
+I appreciate your questions, issues and feature requests. Contact me on joachim@zuckarelli.de, visit the GitHub repository on https://github.com/jsugarelli/xml2relational for the package source and [follow me on Twitter](https://twitter.com/jsugarelli) to stay up-to-date!
