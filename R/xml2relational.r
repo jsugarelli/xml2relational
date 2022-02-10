@@ -75,19 +75,19 @@ serial.df <- function(l, elem.df, df.name, record, prefix.primary, prefix.foreig
       else {
         if(!is.na(elem.df[record, i])) {
           serial <- append(serial, tidyr::replace_na(
-            serial.df(l, df.sub, table.name, which(df.sub[, paste0(prefix.primary, table.name)] == elem.df[record, i]), prefix.primary, prefix.foreign),0))
+            serial.df(l, df.sub, table.name, which(df.sub[, paste0(prefix.primary, table.name)] == elem.df[record, i]), prefix.primary, prefix.foreign),"0"))
         }
       }
     }
     else {
       if(stringr::str_sub(names(elem.df)[i], 1, nchar(prefix.primary)) != prefix.primary) {
-        serial <- append(serial, tidyr::replace_na(elem.df[record, i], 0))
+        serial <- append(serial, tidyr::replace_na(elem.df[record, i], "0"))
         names(serial)[NROW(serial)] <- paste0(df.name, "@", names(elem.df)[i])
       }
     }
   }
   if(NROW(serial) > 0) {
-    return(tidyr::replace_na(serial[order(names(serial))],0))
+    return(tidyr::replace_na(serial[order(names(serial))],"0"))
   }
   else return(NA)
 }
@@ -102,7 +102,7 @@ serial.xml <- function(obj) {
       else {
         ctn <- as.character(xml2::xml_contents(chdr[i]))
         if(identical(ctn, character(0))) ctn <- NA
-        serial <- append(serial, tidyr::replace_na(ctn, 0))
+        serial <- append(serial, tidyr::replace_na(ctn, "0"))
         names(serial)[NROW(serial)] <- paste0(xml2::xml_name(obj), "@", xml2::xml_name(chdr[i]))
       }
     }
@@ -121,7 +121,7 @@ find.object <- function(l, obj, prefix.primary, prefix.foreign) {
       res.df <- serial.df(l, elem.df, xml2::xml_name(obj), i, prefix.primary, prefix.foreign)
       res.xml <- serial.xml(obj)
       if(NROW(res.df) == NROW(res.xml)) {
-        if(sum(tidyr::replace_na(res.df, 0) == tidyr::replace_na(res.xml, 0)) - NROW(res.df) == 0) {
+        if(sum(tidyr::replace_na(res.df, "0") == tidyr::replace_na(res.xml, "0")) - NROW(res.df) == 0) {
           ex <- elem.df[i,paste0(prefix.primary,xml2::xml_name(obj))]
           break
         }
